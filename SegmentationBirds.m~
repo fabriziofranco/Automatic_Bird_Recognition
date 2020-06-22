@@ -13,20 +13,20 @@ for i=1:length(y)
         XD(i)=0;
     end
 end
-%plot(t,y)
-%hold on
+plot(t,y)
+hold on
 %plot(t,XD)
 xP=XD.*X;
 xP(xP==0)=[];
 txP=0:1/Fs:length(xP)/Fs-1/Fs;
-%figure
-%plot(txP,xP)
-%figure
-%spectrogram(xP,128,120,128,Fs,'yaxis')
-%colormap('hot')
+figure
+plot(txP,xP)
+figure
+spectrogram(xP,128,120,128,Fs,'yaxis')
+colormap('hot')
 figure 
-periodogram(xP,[],10000)
-[ESPECTRO,f]=periodogram(xP,[],10000);
-%figure 
-%plot(t,X)
+periodogram(xP,[],50000)
+[ESPECTRO,f]=periodogram(xP,[],15000);
+figure 
+plot(t,X)
 end 
