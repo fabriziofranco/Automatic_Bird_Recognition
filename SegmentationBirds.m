@@ -24,9 +24,9 @@ txP=0:1/Fs:length(xP)/Fs-1/Fs;
 %figure
 %spectrogram(xP,128,120,128,Fs,'yaxis')
 %colormap('hot')
-figure 
-periodogram(xP,[],10000)
-[ESPECTRO,f]=periodogram(xP,[],10000);
+%figure 
+%periodogram(xP,[],20000)
+[ESPECTRO,f]=periodogram(xP,[],20000);
 %figure 
 %plot(t,X)
 end 
