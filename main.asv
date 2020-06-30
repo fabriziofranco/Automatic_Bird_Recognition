@@ -1,0 +1,16 @@
+function[normalized]Normaliz
+[s1, fs] = audioread('Cortarramas1.mp3');
+
+[s2, fs1] = audioread('Cortarramas1.mp3');
+
+unos = [1,1];
+pico = max(abs(s1));
+tama = size(pico);
+e = tama(2);
+if(e == 1)
+    s1 = s1 *(1/pico) ;
+end
+if(e == 2)
+    s1 = s1 .*(unos/pico) ;
+end
+
