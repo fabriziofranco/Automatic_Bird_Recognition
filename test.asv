@@ -15,26 +15,72 @@
 [X10,y10,Filtrado10,umbral10,Periodogram10,f10]=SegmentationBirds('Cortarramas5.mp3');
 
 
-xx1=(Periodogram);
-xx2=(Periodogram2);
-xx3=(Periodogram3);
-xx4=(Periodogram4);
-xx5=(Periodogram5);
+xx1=10*log10(Periodogram);
+xx2=10*log10(Periodogram2);
+xx3=10*log10(Periodogram3);
+xx4=10*log10(Periodogram4);
+xx5=10*log10(Periodogram5);
 
 pava=(xx1+xx2+xx3+xx4+xx5)/5;
 
-pava = Normalizador(pava);
+aux_pava = [xx1,xx2,xx3,xx4,xx5];
 
-xx6=(Periodogram6);
-xx7=(Periodogram7);
-xx8=(Periodogram8);
-xx9=(Periodogram9);
-xx10=(Periodogram10);
+sd_pava = std(aux_pava);
+
+
+y11 = pava; % your mean vector;
+x11 = pava;
+for i = 1:10001
+x1190
+end
+std_dev = std(pava);
+curve1 = y11 + std_dev;
+curve2 = y11 - std_dev;
+
+x22 = [x11, x11];
+curva2  = fliplr(curve2);
+ib = [curve1, curva2];
+fill(x22, ib, 'g');
+hold on;
+plot(x11, y11, 'r', 'LineWidth', 2);
+
+
+
+xx6=10*log10(Periodogram6);
+xx7=10*log10(Periodogram7);
+xx8=10*log10(Periodogram8);
+xx9=10*log10(Periodogram9);
+xx10=10*log10(Periodogram10);
 
 ramas=(xx6+xx7+xx8+xx9+xx10)/5;
 
-ramas = Normalizador(pava);
+aux_ramas = [xx6,xx7, xx8, xx9, xx10];
 
+
+sd_ramas = std(aux_ramas);
+
+
+
+figure
+plot(pava);
+title('Pava0')
+figure
+plot(ramas);
+title('Cortarramas0')
+
+
+
+ramas = Normalizador(ramas);
+
+pava = Normalizador(pava);
+
+%{
+figure
+plot(pava);
+title('Pava1')
+figure
+plot(ramas);
+title('Cortarramas1')
 
 
 figure
@@ -43,6 +89,8 @@ title('Histograma de periodograma (escalado) propedio normalizado de Pava con au
 figure
 histogram(ramas,15);
 title('Histograma de periodograma (escalado) propedio normalizado de Cortarramas con audios normalizados')
+}%
+
 %[valores]=histcounts(pava,6);
 %[valores2]=histcounts(ramas,6);
 
